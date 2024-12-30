@@ -251,7 +251,7 @@ export default function Home() {
     <RTVIClientProvider client={voiceClient!}>
       <main className="flex min-h-screen flex-col items-center justify-between p-24">
         <div className="flex flex-col gap-4 items-center">
-          <h1 className="text-4xl font-bold">Your Personal Assistant</h1>
+          <h1 className="text-4xl font-bold">Information Assistant</h1>
           <App />
         </div>
       </main>

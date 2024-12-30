@@ -42,7 +42,7 @@ const App: React.FC = () => {
 
       // Animate the button for ~2s whenever the bot speaks
       setIsSpeaking(true);
-      setTimeout(() => setIsSpeaking(false), 2000);
+      setTimeout(() => setIsSpeaking(false), 3000);
     }, [])
   );
 
@@ -90,7 +90,7 @@ const App: React.FC = () => {
       {/* Connect/Disconnect button */}
       <button
         onClick={() => (state === "disconnected" ? connect() : disconnect())}
-        className={`mx-auto px-5 py-2 rounded-full self-center transition-all 
+        className={`mx-auto px-10 py-4 rounded-full self-center transition-all 
           ${isSpeaking ? "animate-pulse" : ""}
           ${state !== "disconnected" ? "bg-red-200" : "bg-slate-300"}
         `}
@@ -104,7 +104,30 @@ const App: React.FC = () => {
           >
             <path d="M256 320c53.02 0 96-43 96-96V96c0-53-43-96-96-96s-96 43-96 96v128c0 53 43 96 96 96zm-24 144.9v47.1c0 13.3 10.7 24 24 24s24-10.7 24-24v-47.1c72.9-11.8 128-73.5 128-150.9 0-13.3-10.7-24-24-24s-24 10.7-24 24c0 55.2-44.8 100-100 100s-100-44.8-100-100c0-13.3-10.7-24-24-24s-24 10.7-24 24c0 77.4 55.1 139.1 128 150.9z" />
           </svg>
-        ) : (
+        ) : 
+        state !== "ready" ? (
+          <svg
+            className="animate-spin h-5 w-5 text-blue-500"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <circle
+              className="opacity-25"
+              cx="12"
+              cy="12"
+              r="10"
+              stroke="currentColor"
+              strokeWidth="4"
+            ></circle>
+            <path
+              className="opacity-75"
+              fill="currentColor"
+              d="M4 12a8 8 0 018-8v4l3-3-3-3v4a8 8 0 11-8 8z"
+            ></path>
+          </svg>
+        ) : 
+          (
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-5 w-5 text-red-600"
